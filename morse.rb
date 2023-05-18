@@ -32,3 +32,18 @@ class MorseCodeConverter
       message.split("   ").map { |morse_word| decode_word(morse_word) }.join(" ")
     end
   end
+  puts "Enter 'encode' to convert text to Morse code or 'decode' to convert Morse code to text:"
+  conversion_type = gets.chomp.downcase
+  if conversion_type == "encode"
+    puts "Enter the text to encode:"
+    text = gets.chomp
+    encoded_message = MorseCodeConverter.encode(text)
+    puts "Encoded message: #{encoded_message}"
+  elsif conversion_type == "decode"
+    puts "Enter the Morse code to decode:"
+    morse_code = gets.chomp
+    decoded_message = MorseCodeConverter.decode(morse_code)
+    puts "Decoded message: #{decoded_message}"
+  else
+    puts "Invalid conversion type."
+  end
